@@ -80,6 +80,11 @@ body {
 
 .nav a:hover, .nav a[aria-current="page"] { color: #d5fff3; background: #6745c4; }
 
+a:focus-visible, button:focus-visible {
+  outline: 3px dashed #6745c4;
+  outline-offset: 3px;
+}
+
 .layout {
   display: grid;
   grid-template-columns: 205px minmax(0, 1fr);
@@ -113,8 +118,63 @@ aside, main { min-width: 0; }
 .center { text-align: center; }
 
 .main-panel { min-height: 330px; }
-.main-panel h2 { background: #8f8acc; }
-.main-panel .panel-body { padding: 18px; }
+.main-panel h2, .home-intro h2 { background: #8f8acc; }
+.main-panel .panel-body, .home-intro .panel-body { padding: 18px; }
+
+.home-intro { min-height: 0; }
+.home-links { margin-top: 18px; }
+.home-recent { margin-top: 18px; }
+.home-update + .home-update { margin-top: 14px; padding-top: 14px; border-top: 2px dashed #6745c4; }
+.home-update h3 { margin: 0; font-size: 1.1rem; }
+.home-update p { margin: 4px 0 0; }
+
+.game-layout { display: block; max-width: 1100px; width: 100%; margin: 0 auto; }
+.game-panel { margin: 0; }
+.game-frame {
+  display: block;
+  width: 100%;
+  height: clamp(320px, 70vh, 680px);
+  border: 2px solid #000000;
+  background: #000000;
+}
+
+.game-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0;
+  font-size: .85rem;
+}
+
+.game-actions button {
+  padding: 5px 9px;
+  color: #000000;
+  background: #a7a5c6;
+  border: 2px solid #000000;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.game-actions button:hover, .game-actions button[aria-pressed="true"] {
+  color: #d5fff3;
+  background: #6745c4;
+}
+
+.download-panel h3 { margin: 18px 0 6px; font-size: 1.1rem; }
+.download-panel ol { margin: 0; padding-left: 24px; }
+.download-link {
+  display: inline-block;
+  padding: 8px 10px;
+  color: #000000;
+  background: #a7a5c6;
+  border: 2px solid #000000;
+  font-weight: bold;
+  text-decoration: none;
+}
+.download-link:hover { color: #d5fff3; background: #6745c4; }
 
 .placeholder {
   padding: 12px;
@@ -226,6 +286,32 @@ aside, main { min-width: 0; }
 }
 
 .link-grid a:hover { color: #d5fff3; background: #6745c4; }
+
+.sort-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px dashed #6745c4;
+  font-size: .85rem;
+}
+
+.sort-controls select {
+  padding: 3px 7px;
+  color: #000000;
+  background: #a7a5c6;
+  border: 2px solid #000000;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.sort-controls select:hover, .sort-controls select:focus {
+  color: #d5fff3;
+  background: #6745c4;
+}
 
 .fun-list { padding-left: 24px; }
 .fun-list li::marker { color: #6745c4; }

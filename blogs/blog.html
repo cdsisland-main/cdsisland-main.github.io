@@ -39,10 +39,22 @@
         <section class="panel main-panel">
           <h2>blog posts</h2>
           <div class="panel-body">
-            <p><a href="blog-update.html">website update</a><br><small>9/4/2026 - The site got a new look.</small></p>
+            <div class="sort-controls" role="group" aria-label="sort blog posts" hidden>
+              <label for="blog-sort-select">sort by:</label>
+              <select id="blog-sort-select" data-sort>
+                <option value="" selected>choose one</option>
+                <option value="title">alphabetically</option>
+                <option value="newest">newest</option>
+                <option value="oldest">oldest</option>
+              </select>
+            </div>
+            <div data-sortable-list>
+              <p data-sortable-item data-title="website update" data-date="2026-09-04"><a href="blog-update.html">website update</a><br><small>9/4/2026 - The site got a new look.</small></p>
+              <p data-sortable-item data-title="game page added" data-date="2026-09-16"><a href="9-16-2026.html">game page added</a><br><small>9/16/2026 - Added the game page!</small></p>
+            </div>
             
-            <p><a href="blog-post-template.html">[ post title placeholder ]</a><br><small>[ date ] — [ a short post
-                description goes here. ]</small></p>
+            <!-- <p><a href="blog-post-template.html">[ post title placeholder ]</a><br><small>[ date ] — [ a short post
+                description goes here. ]</small></p> -->
           </div>
         </section>
       </main>

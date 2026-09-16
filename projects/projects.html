@@ -39,21 +39,32 @@
       <main>
         <section class="panel main-panel">
           <h2>projects</h2>
-          <div class="panel-body project-grid">
-            <figure class="showcase"><img src="../assets/sonic-art.png" alt="[ project screenshot placeholder ]">
+          <div class="panel-body">
+            <div class="sort-controls" role="group" aria-label="sort projects" hidden>
+              <label for="projects-sort-select">sort by:</label>
+              <select id="projects-sort-select" data-sort>
+                <option value="" selected>choose one</option>
+                <option value="title">alphabetically</option>
+                <option value="newest">newest</option>
+                <option value="oldest">oldest</option>
+              </select>
+            </div>
+            <div class="project-grid" data-sortable-list>
+            <figure class="showcase" data-sortable-item data-title="project saturn" data-date="2026-09-16T12:17:05"><img src="../assets/sonic-art.png" alt="[ project screenshot placeholder ]">
               <figcaption>
                 <h3>project saturn</h3>
                 <p>a sonic fangame made in godot 4.7</p>
                 <p><a href="project-template.html">view project</a></p>
               </figcaption>
             </figure>
-            <figure class="showcase"><img src="../assets/alden.png" alt="Alden character artwork from Tomorrow, Again">
+            <figure class="showcase" data-sortable-item data-title="tomorrow, again" data-date="2026-09-16T10:40:04"><img src="../assets/alden.png" alt="Alden character artwork from Tomorrow, Again">
               <figcaption>
                 <h3>tomorrow, again</h3>
                 <p>a game currently in the works.</p>
                 <p><a href="tomorrow-again.html">view project</a></p>
               </figcaption>
             </figure>
+            </div>
             <p class="placeholder">[ another project placeholder. ]</p>
           </div>
         </section>
