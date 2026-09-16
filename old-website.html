@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my website</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Comic+Relief:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #090312;
+            --ink: #18111f;
+            --panel-edge: #7fe8ff;
+            --accent: #ffea00;
+            --link: #85f7ff;
+            --visited: #ffb3ff;
+        }
+
+        body {
+            margin: 0;
+            background: #05020d url("arcadefloor.jpg") repeat;
+            background-attachment: fixed;
+            font-family: "Comic Sans MS", Verdana, Arial, sans-serif;
+            color: #ffffff;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.05) 0,
+                rgba(255, 255, 255, 0.05) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            mix-blend-mode: soft-light;
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.75);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header,
+        .topnav,
+        .layout {
+            position: relative;
+            z-index: 1;
+        }
+
+        a {
+            color: var(--link);
+        }
+
+        a:visited {
+            color: var(--visited);
+        }
+
+        a:hover {
+            color: var(--accent);
+            text-shadow: none;
+        }
+
+        header {
+            max-width: 980px;
+            margin: 16px auto 0 auto;
+            text-align: center;
+            background: #16073e;
+            color: #ffffff;
+            border: 4px outset #c9c0ff;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.35);
+            padding: 14px 14px 12px 14px;
+        }
+
+        header h1 {
+            margin: 8px 0 4px 0;
+            color: var(--accent);
+            font-family: "Trebuchet MS", "Comic Sans MS", sans-serif;
+            font-size: 40px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 0 #000;
+        }
+
+        header p {
+            margin: 4px 0;
+        }
+
+        .status-strip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .sticker {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #ffd84d;
+            color: #2b1300;
+            border: 2px outset #fff6bf;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .topnav {
+            max-width: 980px;
+            margin: 10px auto;
+            text-align: center;
+            background: #080808;
+            border: 3px solid var(--panel-edge);
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.35);
+            padding: 8px;
+        }
+
+        .topnav a {
+            display: inline-block;
+            margin: 2px 6px;
+            padding: 5px 11px;
+            text-decoration: none;
+            color: #ffffff;
+            background: #1c3fd1;
+            border-width: 2px;
+            border-style: outset;
+            border-color: #d9e5ff #00104e #00104e #d9e5ff;
+            font-weight: bold;
+        }
+
+        .layout {
+            display: flex;
+            max-width: 980px;
+            margin: 0 auto 28px auto;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .sidebar {
+            width: 220px;
+            background: #112a6b;
+            color: white;
+            padding: 12px;
+            border: 3px solid #ffffff;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.35);
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            margin: 14px 0 8px 0;
+            padding: 4px 6px;
+            background: #1b2ea8;
+            color: var(--accent);
+            border: 2px solid #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #99ffff;
+            text-decoration: none;
+            padding: 4px 0 4px 12px;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .sidebar a::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: #ff8fd6;
+        }
+
+        .content {
+            flex: 1;
+            padding: 18px;
+            background: #fff7d6;
+            color: var(--ink);
+            border: 3px solid #1f2ea0;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.28);
+        }
+
+        h1 {
+            color: #17249f;
+            margin-top: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            border-bottom: 3px ridge #cfb96a;
+            padding-bottom: 4px;
+            text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        h2 {
+            background: #1b37b4;
+            color: #ffffff;
+            padding: 7px 8px;
+            border: 2px solid #000000;
+            box-shadow: none;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .infobox {
+            border-collapse: collapse;
+            font-size: 14px;
+            background: #fff3b0;
+            float: right;
+            margin: 0 0 14px 14px;
+            width: 240px;
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.22);
+        }
+
+        .infobox td,
+        .infobox th {
+            border: 1px solid #000000;
+            padding: 6px;
+        }
+
+        .infobox th {
+            background: #ffcc00;
+        }
+
+        .charcard, .devnote, .secretbox, .noticebox {
+            border: 2px dashed #2238aa;
+            background: #f4f1ff;
+            padding: 12px;
+            margin: 14px 0;
+            box-shadow: 3px 3px 0 rgba(44, 32, 90, 0.22);
+        }
+
+        .noticebox {
+            background: #21104b;
+            color: #f4f7ff;
+            border-color: #7fe8ff;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.35);
+        }
+
+        .argbox {
+            border: 2px dashed #8a1f7a;
+            background: #fff1f8;
+            color: #37112f;
+            padding: 10px 12px;
+            margin: 14px 0;
+            box-shadow: 3px 3px 0 rgba(86, 24, 70, 0.22);
+        }
+
+        .charcard {
+            overflow: hidden;
+        }
+
+        .charcard img {
+            display: block;
+            width: 150px;
+            max-width: 150px;
+            height: auto;
+            float: right;
+            margin-left: 12px;
+            border: 2px solid #000000;
+            background: #ffffff;
+            object-fit: contain;
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.22);
+        }
+
+        .arcadebtn {
+            display: inline-block;
+            background: #1c3fd1;
+            color: #ffffff;
+            padding: 6px 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border-width: 2px;
+            border-style: outset;
+            border-color: #d9e5ff #00104e #00104e #d9e5ff;
+            box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.18);
+        }
+
+        .devnote b {
+            color: #cc0000;
+        }
+
+        .badge-row {
+            text-align: center;
+            margin: 6px 0 10px 0;
+        }
+
+        .badge-row img {
+            vertical-align: middle;
+            margin: 2px 4px;
+            max-height: 40px;
+        }
+
+        .marquee-wrap {
+            margin: 8px 0;
+            background: #000000;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            padding: 4px;
+        }
+
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        .counter {
+            display: inline-block;
+            background: #000000;
+            color: #00ff00;
+            border: 2px solid #808080;
+            padding: 3px 8px;
+            font-family: "Courier New", monospace;
+            letter-spacing: 2px;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        hr {
+            border: 0;
+            border-top: 2px dotted #0000cc;
+            margin: 16px 0;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        @media (max-width: 860px) {
+            .layout {
+                flex-direction: column;
+                padding: 0 10px;
+            }
+
+            .sidebar {
+                width: auto;
+            }
+
+            .infobox, .charcard img {
+                float: none;
+                width: 100%;
+                max-width: 100%;
+                margin: 0 0 12px 0;
+            }
+
+            header, .topnav {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="/assets/retro-game-promo-90s.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>my website</h1>
+        <p><i>Ryan's game experiments and projects</i></p>
+        <div class="marquee-wrap">
+            <marquee scrollamount="6">WELCOME TO MY WEBSITE!!! BEST VIEWED ON A BIG OLD MONITOR!!! CLICK AROUND AND HAVE FUN!!!</marquee>
+        </div>
+        <div class="status-strip">
+            <span class="counter">STATUS: ONLINE</span>
+            <span class="sticker">SITE: ACTIVE</span>
+        </div>
+    </header>
+
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a href="about.html">Projects</a>
+        <a href="partycrashers.html">Wiki</a>
+        <a href="partycrashers-download.html">Download</a>
+    </div>
+
+    <div class="layout">
+
+        <aside class="sidebar">
+            <h2>Navigation</h2>
+            <a href="#welcome">Welcome</a>
+            <a href="#featured">Featured Project</a>
+            <a href="#notes">Developer Notes</a>
+            <a href="#secret">Secret</a>
+
+            <h2>Quick Links</h2>
+            <a href="partycrashers.html">Party Crashers Wiki</a>
+            <a href="lux.html">Lux and the Lightshard</a>
+            <a href="game/index.html">RPGMaker Game</a>
+            <a href="partycrashers-download.html">Saturn Download</a>
+
+            <h2>Weird Stuff</h2>
+            <a href="partycrasherimg/forum.html">Old Forum Thread</a>
+            <a href="partycrasherimg/devlog.html">Recovered Dev Log</a>
+            <a href="partycrasherimg/luke.html">Luke's Page</a>
+        </aside>
+
+        <main class="content">
+
+            <h1 id="welcome">Welcome!</h1>
+
+            <div class="noticebox">
+                <marquee behavior="alternate">THIS SITE IS ALWAYS UNDER CONSTRUCTION!!!</marquee>
+                <p><span class="blink"><b>Latest update:</b></span> still making weird game stuff.</p>
+            </div>
+
+            <div class="argbox">
+                <b>WEBMASTER NOTE:</b>
+                <p>I keep finding old PARTY CRASHERS files in folders I swear I already checked. If a page changes, that might be me updating it, or it might be because I found another scrap.</p>
+            </div>
+
+            <table class="infobox">
+                <tr>
+                    <th colspan="2">Developer Info <span style="color:#cc0000;">[NEW]</span></th>
+                </tr>
+                <tr>
+                    <td><b>Name</b></td>
+                    <td>Ryan</td>
+                </tr>
+                <tr>
+                    <td><b>Age</b></td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td><b>Focus</b></td>
+                    <td>Party Crashers</td>
+                </tr>
+                <tr>
+                    <td><b>Projects</b></td>
+                    <td><a href="/about.html">here!</a></td>
+                </tr>
+            </table>
+
+            <p>
+                Hi! I'm Ryan and this is my website.
+                I like making weird video games and experiments.
+            </p>
+
+            <p>
+                Most of my projects are small demos or experiments, but they might turn into full games later.
+            </p>
+
+            <div class="clear"></div>
+
+            <hr>
+
+            <h2 id="featured">Featured Project</h2>
+
+            <div class="charcard">
+
+                <img src="partycrasherimg/blux.png" alt="Blux">
+
+                <b>PARTY CRASHERS</b>
+
+                <p>
+                    A 2D asymmetrical multiplayer game where survivors try to escape while killers hunt them down.
+                </p>
+
+                <a class="arcadebtn" href="partycrashers.html">Open Wiki</a>
+                <a class="arcadebtn" href="partycrashers-download.html" style="margin-left:8px;">Download Game</a>
+
+            </div>
+
+            <hr>
+
+            <h2 id="notes">Developer Notes</h2>
+
+            <div class="devnote">
+
+                <b>DEV NOTE:</b>
+
+                <p>
+                    This site is still being worked on and some pages may be unfinished.
+                </p>
+
+                <p>
+                    The PARTY CRASHERS wiki is the most complete part right now.
+                </p>
+
+            </div>
+
+            <hr>
+
+            <h2 id="secret">Secret</h2>
+
+            
+            <img src="joebart.jpg" width="100%" alt="Blux screenshot">
+            
+            <!-- hitwebcounter Code START -->
+            <a href="https://www.hitwebcounter.com/" target="_blank">
+            <img src="https://hitwebcounter.com/counter/counter.php?page=21486497&style=0027&nbdigits=5&type=page&initCount=0" title="Free Tools" Alt="Free Tools"   border="0" /></a>            
+        </main>
+
+    </div>
+
+<script>
+(function () {
+    var counters = document.querySelectorAll('[data-counter-key]');
+    counters.forEach(function (counter) {
+        var key = counter.getAttribute('data-counter-key');
+        var base = parseInt(counter.getAttribute('data-counter-base') || '0', 10);
+        var current = parseInt(localStorage.getItem(key) || String(base), 10);
+        current += 1;
+        localStorage.setItem(key, String(current));
+        counter.textContent = String(current).padStart(6, '0');
+    });
+}());
+</script>
+</body>
+
+</html>
