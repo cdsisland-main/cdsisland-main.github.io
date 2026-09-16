@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>blog</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+
+<body>
+  <div class="site">
+    <header class="masthead">
+      <h1>blog</h1>
+      <p>i write sometimes</p>
+    </header>
+    <nav class="nav" aria-label="main navigation"><a href="../index.html">home</a><a href="../projects/projects.html">projects</a><a
+      href="../games/games.html">games</a><a href="blog.html" aria-current="page">blog</a></nav>
+    <div class="layout">
+      <aside>
+        <section class="panel">
+          <h2>the menu</h2>
+          <div class="panel-body">
+            <ul class="menu">
+              <li><a href="../index.html">home base</a></li>
+              <li><a href="../projects/projects.html">cool projects</a></li>
+              <li><a href="../games/games.html">games zone</a></li>
+              <li><a href="blog.html">blog zone</a></li>
+            </ul>
+          </div>
+        </section>
+        <section class="panel">
+          <h2>blog info</h2>
+          <div class="panel-body tiny center">nothing here for the most part yet</div>
+        </section>
+      </aside>
+      <main>
+        <section class="panel main-panel">
+          <h2>blog posts</h2>
+          <div class="panel-body">
+            <div class="sort-controls" role="group" aria-label="sort blog posts" hidden>
+              <label for="blog-sort-select">sort by:</label>
+              <select id="blog-sort-select" data-sort>
+                <option value="" selected>choose one</option>
+                <option value="title">alphabetically</option>
+                <option value="newest">newest</option>
+                <option value="oldest">oldest</option>
+              </select>
+            </div>
+            <div data-sortable-list>
+              <p data-sortable-item data-title="website update" data-date="2026-09-04"><a href="blog-update.html">website update</a><br><small>9/4/2026 - The site got a new look.</small></p>
+              <p data-sortable-item data-title="game page added" data-date="2026-09-16"><a href="9-16-2026.html">game page added</a><br><small>9/16/2026 - Added the game page!</small></p>
+            </div>
+            
+            <!-- <p><a href="blog-post-template.html">[ post title placeholder ]</a><br><small>[ date ] — [ a short post
+                description goes here. ]</small></p> -->
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer>deployed with gitty &nbsp; | &nbsp; last updated: <time data-last-updated>loading...</time> &nbsp; | &nbsp;
+      thanks for stopping by</footer>
+  </div>
+</body>
+
+</html>
