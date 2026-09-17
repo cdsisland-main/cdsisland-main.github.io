@@ -1,342 +1,611 @@
 /* A cheerful, hand-made personal-site theme. */
-* { box-sizing: border-box; }
 
-body {
-  margin: 0;
-  padding: 0;
-  background: #d5fff3;
-  color: #000000;
-  font: 16px/1.5 "Comic Sans MS", "Comic Sans", cursive;
+* {
+  box-sizing: border-box;
+  }
+
+@font-face {
+font-family: "Children Sans";
+src: url("./ChildrenSans.ttf") format("truetype");
+font-weight: 400;
+font-style: normal;
+font-display: swap;
 }
+
+/* Main site font */
+body {
+margin: 0;
+padding: 0;
+background: #d5fff3;
+color: #000000;
+font-family: "Children Sans", sans-serif;
+}
+
+/* =========================================================
+SITE
+========================================================= */
 
 .site {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0;
-  border: 4px solid #000000;
-  background: #d5fff3;
-  display: flex;
-  flex-direction: column;
+width: 100%;
+min-height: 100vh;
+margin: 0;
+border: 4px solid #000000;
+background: #d5fff3;
+display: flex;
+flex-direction: column;
 }
 
-/* The scrolling announcement used by the current homepage. */
+/* =========================================================
+TICKER
+========================================================= */
+
 .ticker {
-  overflow: hidden;
-  color: #d5fff3;
-  background: #000000;
-  border-bottom: 2px solid #6745c4;
-  font: bold 12px "Courier New", monospace;
-  white-space: nowrap;
+overflow: hidden;
+color: #d5fff3;
+background: #000000;
+border-bottom: 2px solid #6745c4;
+
+/* Keep ticker as Courier New */
+font: bold 12px "Courier New", monospace;
+
+white-space: nowrap;
 }
 
 .ticker-track {
-  display: flex;
-  width: max-content;
-  animation: ticker-scroll 18s steps(72, end) infinite;
+display: flex;
+width: max-content;
+animation: ticker-scroll 18s steps(72, end) infinite;
 }
 
 .ticker span {
-  display: block;
-  padding: 6px 48px 6px 0;
+display: block;
+padding: 6px 48px 6px 0;
 }
 
 @keyframes ticker-scroll {
-  to { transform: translateX(-50%); }
+to {
+transform: translateX(-50%);
+}
 }
 
+/* =========================================================
+MASTHEAD
+========================================================= */
+
 .masthead {
-  padding: 22px 20px 16px;
-  color: #ffffff;
-  text-align: center;
-  background: #6745c4;
-  border-bottom: 4px solid #000000;
+padding: 22px 20px 16px;
+color: #ffffff;
+text-align: center;
+background: #6745c4;
+border-bottom: 4px solid #000000;
 }
 
 .masthead h1 {
-  margin: 0;
-  font-size: clamp(2rem, 7vw, 3.4rem);
-  letter-spacing: 1px;
+margin: 0;
+font-size: clamp(2rem, 7vw, 3.4rem);
+letter-spacing: 1px;
 }
 
-.masthead p { margin: 2px 0 0; font-size: 1rem; }
+.masthead p {
+margin: 2px 0 0;
+font-size: 1rem;
+}
+
+/* =========================================================
+NAVIGATION
+========================================================= */
 
 .nav {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px;
-  background: #a7a5c6;
-  border-bottom: 2px solid #000000;
+display: flex;
+justify-content: center;
+gap: 8px;
+padding: 12px;
+background: #a7a5c6;
+border-bottom: 2px solid #000000;
 }
 
 .nav a {
-  padding: 6px 15px;
-  color: #000000;
-  background: #d5fff3;
-  border: 2px solid #000000;
-  font-weight: bold;
-  text-decoration: none;
+padding: 6px 15px;
+color: #000000;
+background: #d5fff3;
+border: 2px solid #000000;
+font-weight: bold;
+text-decoration: none;
 }
 
-.nav a:hover, .nav a[aria-current="page"] { color: #d5fff3; background: #6745c4; }
-
-a:focus-visible, button:focus-visible {
-  outline: 3px dashed #6745c4;
-  outline-offset: 3px;
+.nav a:hover,
+.nav a[aria-current="page"] {
+color: #d5fff3;
+background: #6745c4;
 }
+
+a:focus-visible,
+button:focus-visible {
+outline: 3px dashed #6745c4;
+outline-offset: 3px;
+}
+
+/* =========================================================
+LAYOUT
+========================================================= */
 
 .layout {
-  display: grid;
-  grid-template-columns: 205px minmax(0, 1fr);
-  gap: 18px;
-  padding: 18px;
-  flex: 1;
-  align-content: start;
+display: grid;
+grid-template-columns: 205px minmax(0, 1fr);
+gap: 18px;
+padding: 18px;
+flex: 1;
+align-content: start;
 }
 
-aside, main { min-width: 0; }
+aside,
+main {
+min-width: 0;
+}
 
-.panel { border: 2px solid #000000; background: #d5fff3; }
-.panel + .panel { margin-top: 14px; }
+/* =========================================================
+PANELS
+========================================================= */
+
+.panel {
+border: 2px solid #000000;
+background: #d5fff3;
+}
+
+.panel + .panel {
+margin-top: 14px;
+}
 
 .panel h2 {
-  margin: 0;
-  padding: 6px 10px;
-  color: #ffffff;
-  background: #8775c5;
-  font-size: 1rem;
+margin: 0;
+padding: 6px 10px;
+color: #ffffff;
+background: #8775c5;
+font-size: 1rem;
 }
 
-.panel-body { padding: 12px; }
+.panel-body {
+padding: 12px;
+}
 
-.menu { margin: 0; padding: 0; list-style: none; }
-.menu li + li { margin-top: 7px; }
-.menu a { color: #6745c4; font-weight: bold; }
-.menu a:hover { color: #000000; }
+/* =========================================================
+MENU
+========================================================= */
 
-.tiny { font-size: .82rem; }
-.center { text-align: center; }
+.menu {
+margin: 0;
+padding: 0;
+list-style: none;
+}
 
-.main-panel { min-height: 330px; }
-.main-panel h2, .home-intro h2 { background: #8f8acc; }
-.main-panel .panel-body, .home-intro .panel-body { padding: 18px; }
+.menu li + li {
+margin-top: 7px;
+}
 
-.home-intro { min-height: 0; }
-.home-links { margin-top: 18px; }
-.home-recent { margin-top: 18px; }
-.home-update + .home-update { margin-top: 14px; padding-top: 14px; border-top: 2px dashed #6745c4; }
-.home-update h3 { margin: 0; font-size: 1.1rem; }
-.home-update p { margin: 4px 0 0; }
+.menu a {
+color: #6745c4;
+font-weight: bold;
+}
 
-.game-layout { display: block; max-width: 1100px; width: 100%; margin: 0 auto; }
-.game-panel { margin: 0; }
+.menu a:hover {
+color: #000000;
+}
+
+.tiny {
+font-size: .82rem;
+}
+
+.center {
+text-align: center;
+}
+
+/* =========================================================
+MAIN PANEL
+========================================================= */
+
+.main-panel {
+min-height: 330px;
+}
+
+.main-panel h2,
+.home-intro h2 {
+background: #8f8acc;
+}
+
+.main-panel .panel-body,
+.home-intro .panel-body {
+padding: 18px;
+}
+
+/* =========================================================
+HOME
+========================================================= */
+
+.home-intro {
+min-height: 0;
+}
+
+.home-links {
+margin-top: 18px;
+}
+
+.home-recent {
+margin-top: 18px;
+}
+
+.home-update + .home-update {
+margin-top: 14px;
+padding-top: 14px;
+border-top: 2px dashed #6745c4;
+}
+
+.home-update h3 {
+margin: 0;
+font-size: 1.1rem;
+}
+
+.home-update p {
+margin: 4px 0 0;
+}
+
+/* =========================================================
+GAME
+========================================================= */
+
+.game-layout {
+display: block;
+max-width: 1100px;
+width: 100%;
+margin: 0 auto;
+}
+
+.game-panel {
+margin: 0;
+}
+
 .game-frame {
-  display: block;
-  width: 100%;
-  height: clamp(320px, 70vh, 680px);
-  border: 2px solid #000000;
-  background: #000000;
+display: block;
+width: 100%;
+height: clamp(320px, 70vh, 680px);
+border: 2px solid #000000;
+background: #000000;
 }
 
 .game-actions {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin: 14px 0;
-  font-size: .85rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 8px;
+margin: 14px 0;
+font-size: .85rem;
 }
 
 .game-actions button {
-  padding: 5px 9px;
-  color: #000000;
-  background: #a7a5c6;
-  border: 2px solid #000000;
-  font: inherit;
-  font-weight: bold;
-  cursor: pointer;
+padding: 5px 9px;
+color: #000000;
+background: #a7a5c6;
+border: 2px solid #000000;
+font: inherit;
+font-weight: bold;
+cursor: pointer;
 }
 
-.game-actions button:hover, .game-actions button[aria-pressed="true"] {
-  color: #d5fff3;
-  background: #6745c4;
+.game-actions button:hover,
+.game-actions button[aria-pressed="true"] {
+color: #d5fff3;
+background: #6745c4;
 }
 
-.download-panel h3 { margin: 18px 0 6px; font-size: 1.1rem; }
-.download-panel ol { margin: 0; padding-left: 24px; }
+/* =========================================================
+DOWNLOADS
+========================================================= */
+
+.download-panel h3 {
+margin: 18px 0 6px;
+font-size: 1.1rem;
+}
+
+.download-panel ol {
+margin: 0;
+padding-left: 24px;
+}
+
 .download-link {
-  display: inline-block;
-  padding: 8px 10px;
-  color: #000000;
-  background: #a7a5c6;
-  border: 2px solid #000000;
-  font-weight: bold;
-  text-decoration: none;
+display: inline-block;
+padding: 8px 10px;
+color: #000000;
+background: #a7a5c6;
+border: 2px solid #000000;
+font-weight: bold;
+text-decoration: none;
 }
-.download-link:hover { color: #d5fff3; background: #6745c4; }
+
+.download-link:hover {
+color: #d5fff3;
+background: #6745c4;
+}
+
+/* =========================================================
+PLACEHOLDER
+========================================================= */
 
 .placeholder {
-  padding: 12px;
-  background: #b7ced3;
-  border: 2px dashed #6745c4;
+padding: 12px;
+background: #b7ced3;
+border: 2px dashed #6745c4;
 }
 
+/* =========================================================
+SHOWCASE
+========================================================= */
+
 .showcase {
-  margin: 0 0 16px;
-  padding: 12px;
-  border: 2px dashed #6745c4;
-  background: #b7ced3;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: flex-start;
-  gap: 14px;
-  min-width: 0;
+margin: 0 0 16px;
+padding: 12px;
+border: 2px dashed #6745c4;
+background: #b7ced3;
+display: grid;
+grid-template-columns: minmax(0, 1fr) auto;
+align-items: flex-start;
+gap: 14px;
+min-width: 0;
 }
 
 .showcase img {
-  display: block;
-  width: 300px;
-  max-width: 46%;
-  height: 220px;
-  object-fit: cover;
-  grid-column: 2;
-  justify-self: end;
-  border: 2px solid #000000;
-  background: #d5fff3;
+display: block;
+width: 300px;
+max-width: 46%;
+height: 220px;
+object-fit: cover;
+grid-column: 2;
+justify-self: end;
+border: 2px solid #000000;
+background: #d5fff3;
 }
 
-.showcase figcaption { grid-column: 1; grid-row: 1; min-width: 0; padding-top: 2px; }
-.showcase h3 { margin: 0; font-size: 1.1rem; }
-.showcase p { margin: 4px 0 0; }
+.showcase figcaption {
+grid-column: 1;
+grid-row: 1;
+min-width: 0;
+padding-top: 2px;
+}
+
+.showcase h3 {
+margin: 0;
+font-size: 1.1rem;
+}
+
+.showcase p {
+margin: 4px 0 0;
+}
+
+/* =========================================================
+PROJECT GRID
+========================================================= */
 
 .project-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 16px;
 }
 
 .project-grid .showcase,
 .project-grid .placeholder {
-  margin: 0;
-  min-width: 0;
+margin: 0;
+min-width: 0;
 }
 
 .project-grid .showcase {
-  display: block;
-  padding: 0;
+display: block;
+padding: 0;
 }
 
 .project-grid .showcase img {
-  width: 100%;
-  max-width: 100%;
-  height: 220px;
-  aspect-ratio: 4 / 3;
-  border: 0;
-  object-fit: contain;
+width: 100%;
+max-width: 100%;
+height: 220px;
+aspect-ratio: 4 / 3;
+border: 0;
+object-fit: contain;
 }
 
-.project-grid .showcase figcaption { padding: 12px; }
+.project-grid .showcase figcaption {
+padding: 12px;
+}
 
-.project-hero { margin-bottom: 18px; }
-.project-hero figcaption { align-self: center; }
-.project-hero h3 { font-size: 1.25rem; }
+/* =========================================================
+PROJECT PAGE
+========================================================= */
 
-.project-intro { margin: 0 0 16px; }
+.project-hero {
+margin-bottom: 18px;
+}
+
+.project-hero figcaption {
+align-self: center;
+}
+
+.project-hero h3 {
+font-size: 1.25rem;
+}
+
+.project-intro {
+margin: 0 0 16px;
+}
+
+/* =========================================================
+PROJECT META
+========================================================= */
 
 .project-meta {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  margin: 0 0 20px;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 8px;
+margin: 0 0 20px;
 }
 
 .project-meta div {
-  padding: 9px;
-  background: #b7ced3;
-  border: 2px solid #000000;
+padding: 9px;
+background: #b7ced3;
+border: 2px solid #000000;
 }
 
 .project-meta dt {
-  color: #6745c4;
-  font-size: .78rem;
-  font-weight: bold;
-  text-transform: uppercase;
+color: #6745c4;
+font-size: .78rem;
+font-weight: bold;
+text-transform: uppercase;
 }
 
-.project-meta dd { margin: 2px 0 0; }
+.project-meta dd {
+margin: 2px 0 0;
+}
 
-.project-links { margin: 0 0 18px; }
-.project-links h3 { margin: 0 0 8px; font-size: 1.1rem; }
+/* =========================================================
+PROJECT LINKS
+========================================================= */
+
+.project-links {
+margin: 0 0 18px;
+}
+
+.project-links h3 {
+margin: 0 0 8px;
+font-size: 1.1rem;
+}
 
 .link-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 8px;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+gap: 8px;
 }
 
 .link-grid a {
-  padding: 8px 10px;
-  color: #000000;
-  background: #a7a5c6;
-  border: 2px solid #000000;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
+padding: 8px 10px;
+color: #000000;
+background: #a7a5c6;
+border: 2px solid #000000;
+font-weight: bold;
+text-align: center;
+text-decoration: none;
 }
 
-.link-grid a:hover { color: #d5fff3; background: #6745c4; }
+.link-grid a:hover {
+color: #d5fff3;
+background: #6745c4;
+}
+
+/* =========================================================
+SORT CONTROLS
+========================================================= */
 
 .sort-controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 16px;
-  padding-bottom: 10px;
-  border-bottom: 2px dashed #6745c4;
-  font-size: .85rem;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+gap: 6px;
+margin-bottom: 16px;
+padding-bottom: 10px;
+border-bottom: 2px dashed #6745c4;
+font-size: .85rem;
 }
 
 .sort-controls select {
-  padding: 3px 7px;
-  color: #000000;
-  background: #a7a5c6;
-  border: 2px solid #000000;
-  font: inherit;
-  font-weight: bold;
-  cursor: pointer;
+padding: 3px 7px;
+color: #000000;
+background: #a7a5c6;
+border: 2px solid #000000;
+font: inherit;
+font-weight: bold;
+cursor: pointer;
 }
 
-.sort-controls select:hover, .sort-controls select:focus {
-  color: #d5fff3;
-  background: #6745c4;
+.sort-controls select:hover,
+.sort-controls select:focus {
+color: #d5fff3;
+background: #6745c4;
 }
 
-.fun-list { padding-left: 24px; }
-.fun-list li::marker { color: #6745c4; }
+/* =========================================================
+FUN LIST
+========================================================= */
+
+.fun-list {
+padding-left: 24px;
+}
+
+.fun-list li::marker {
+color: #6745c4;
+}
+
+/* =========================================================
+FOOTER
+========================================================= */
 
 footer {
-  margin-top: auto;
-  padding: 10px 14px;
-  color: #d5fff3;
-  background: #000000;
-  border-top: 2px solid #6745c4;
-  font-size: .8rem;
-  text-align: center;
+margin-top: auto;
+padding: 10px 14px;
+color: #d5fff3;
+background: #000000;
+border-top: 2px solid #6745c4;
+font-size: .8rem;
+text-align: center;
 }
+
+/* =========================================================
+MOBILE
+========================================================= */
 
 @media (max-width: 620px) {
-  .nav { flex-wrap: wrap; }
-  .layout { grid-template-columns: 1fr; padding: 12px; }
-  .project-grid { grid-template-columns: 1fr; }
-  .project-meta { grid-template-columns: repeat(2, 1fr); }
-  .showcase { grid-template-columns: 1fr; }
-  .project-grid .showcase img { height: auto; max-height: 280px; }
-  .showcase img { grid-column: 1; grid-row: 1; width: 100%; max-width: 100%; height: auto; max-height: 280px; }
-  .showcase figcaption { grid-column: 1; grid-row: 2; }
+
+.nav {
+flex-wrap: wrap;
 }
 
+.layout {
+grid-template-columns: 1fr;
+padding: 12px;
+}
+
+.project-grid {
+grid-template-columns: 1fr;
+}
+
+.project-meta {
+grid-template-columns: repeat(2, 1fr);
+}
+
+.showcase {
+grid-template-columns: 1fr;
+}
+
+.project-grid .showcase img {
+height: auto;
+max-height: 280px;
+}
+
+.showcase img {
+grid-column: 1;
+grid-row: 1;
+width: 100%;
+max-width: 100%;
+height: auto;
+max-height: 280px;
+}
+
+.showcase figcaption {
+grid-column: 1;
+grid-row: 2;
+}
+}
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
-  .ticker-track { animation: none; }
+.ticker-track {
+animation: none;
+}
 }
