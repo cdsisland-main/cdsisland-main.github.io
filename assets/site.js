@@ -91,3 +91,4 @@ document.querySelectorAll("[data-game-fullscreen]").forEach((button) => {
   document.addEventListener("fullscreenchange", updateFullscreenButton);
   updateFullscreenButton();
 });
+
